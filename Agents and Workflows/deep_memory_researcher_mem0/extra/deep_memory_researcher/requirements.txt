@@ -1,0 +1,11 @@
+# Deep Memory Researcher Dependencies
+
+# Core dependencies from existing agents
+mem0ai
+python-dotenv
+rich
+camel-ai
+pydantic
+
+# Additional utilities 
+python-dateutil

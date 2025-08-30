@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "aci_apps": {
+      "command": "uvx",
+      "args": [
+        "aci-mcp",
+        "apps-server",
+        "--apps=NOTION",
+        "--linked-account-owner-id",
+        "your_user_id"
+      ],
+      "env": {
+        "ACI_API_KEY": "b3d764bc91362c0e469c1b059c3ae58963bb56ef8d64bf8112a60937a760ba30"
+      }
+    }
+  }
+}

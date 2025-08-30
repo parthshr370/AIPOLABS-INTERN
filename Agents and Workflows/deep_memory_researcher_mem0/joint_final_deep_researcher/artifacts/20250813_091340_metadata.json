@@ -1,0 +1,114 @@
+{
+  "database_summary": {
+    "total_records": 120,
+    "primary_topics": [
+      "medical_consultations",
+      "personal_hobbies"
+    ],
+    "data_completeness": "high"
+  },
+  "data_structure": {
+    "has_metadata": true,
+    "common_fields": [
+      "memory",
+      "metadata"
+    ],
+    "metadata_keys": [
+      "memory_id",
+      "memory_type",
+      "session_type",
+      "personal_fact",
+      "patient_id",
+      "patient_name",
+      "summary_fact"
+    ]
+  },
+  "content_breakdown": {
+    "top_terms": {
+      "Kaelen Vance": 28,
+      "Kaelen Thorne": 15,
+      "Anjali Vaidya": 11,
+      "Elara Nakamura": 10,
+      "Kaelen Vandermeer": 10
+    },
+    "top_entities": {
+      "Kaelen Vance": 28,
+      "Kaelen Thorne": 15,
+      "Anjali Vaidya": 11,
+      "Elara Nakamura": 10,
+      "Kaelen Vandermeer": 10
+    }
+  },
+  "key_insights": {
+    "dominant_theme": "Patient medical consultations and personal memories",
+    "secondary_themes": [
+      "Diabetes Mellitus management",
+      "Chronic Kidney Disease",
+      "Rheumatoid Arthritis",
+      "Hypertension management",
+      "Personal hobbies and stress relief"
+    ],
+    "patterns": [
+      "Repetitive patient names across multiple entries, suggesting longitudinal data.",
+      "Consistent metadata structure for medical consultations (patient_id, patient_name, session_type, summary_fact).",
+      "Personal memories often detail hobbies and daily life.",
+      "Medical entries detail diagnoses, symptoms, medications, and treatment plans."
+    ],
+    "gaps_or_limitations": [
+      "Lack of timestamps for memories.",
+      "Limited detail on the progression of conditions over time within single patient records.",
+      "No clear separation between different types of medical conditions for a single patient if they have multiple."
+    ],
+    "coverage_summary": {
+      "high_coverage_fields": [
+        "memory",
+        "metadata.session_type",
+        "metadata.summary_fact",
+        "metadata.patient_id",
+        "metadata.patient_name"
+      ],
+      "low_coverage_fields": [
+        "metadata.memory_id",
+        "metadata.memory_type",
+        "metadata.personal_fact"
+      ]
+    },
+    "suggested_filters": [
+      "metadata.session_type",
+      "metadata.patient_name",
+      "metadata.summary_fact"
+    ],
+    "suggested_group_bys": [
+      "metadata.patient_name",
+      "metadata.session_type"
+    ],
+    "suggested_sort_keys": [],
+    "suggested_queries": [
+      "Find all memories for patient X",
+      "List all consultations related to diabetes",
+      "Identify patients with hypertension and CKD"
+    ],
+    "privacy_sensitivity": "high",
+    "confidence": "high"
+  },
+  "examples": [
+    {
+      "snippet": "Parth Sharma often finds quiet satisfaction from discovering new sprouts in his herb garden.",
+      "fields_present": [
+        "memory",
+        "metadata.memory_type",
+        "metadata.session_type",
+        "metadata.personal_fact"
+      ]
+    },
+    {
+      "snippet": "Kaelen Vance's treatment plan includes increasing Insulin Glargine to 24 units at bedtime, Lisinopril to 40 mg once daily, and Gabapentin to 600 mg three times daily.",
+      "fields_present": [
+        "memory",
+        "metadata.patient_name",
+        "metadata.session_type",
+        "metadata.summary_fact"
+      ]
+    }
+  ]
+}

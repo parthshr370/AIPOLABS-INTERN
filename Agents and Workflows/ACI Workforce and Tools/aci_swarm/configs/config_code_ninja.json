@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "aci_apps": {
+      "command": "uvx",
+      "args": [
+        "aci-mcp",
+        "apps-server",
+        "--apps=GITHUB,VERCEL,AGENT_SECRETS_MANAGER",
+        "--linked-account-owner-id",
+        "your_user_id"
+      ],
+      "env": {
+        "ACI_API_KEY": "89528a6b6d2fc5bbfd4517c2e57130df43b4410f1210751dc18508a2b70f4b11"
+      }
+    }
+  }
+}

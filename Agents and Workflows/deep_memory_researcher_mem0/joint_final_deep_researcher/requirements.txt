@@ -1,0 +1,19 @@
+# Deep Memory Research Pipeline Dependencies
+
+# Core AI Frameworks
+camel-ai>=0.2.0
+mem0ai>=0.1.0
+
+# LLM and API Support
+google-generativeai
+python-dotenv
+
+# Terminal Interface
+rich>=10.0.0
+
+# Data Processing
+pathlib
+typing-extensions
+
+# Standard Library (bundled with Python)
+# json, os, sys, datetime, warnings

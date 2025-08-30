@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "aci_unified": {
+      "command": "aci-mcp",
+      "args": [
+        "unified-server",
+        "--linked-account-owner-id",
+        "your_linked_account_owner_id",
+        "--allowed-apps-only"
+      ],
+      "env": {
+        "ACI_API_KEY": "your_aci_api_key_here"
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "aci_apps": {
+      "command": "uvx",
+      "args": [
+        "aci-mcp",
+        "apps-server",
+        "--apps=EXA_AI,ARXIV,GOOGLE_MAPS",
+        "--linked-account-owner-id",
+        "your_user_id"
+      ],
+      "env": {
+        "ACI_API_KEY": "5610fecb847056abfdda8e9337b6d83425b17dc919ed40cff217bf4bb36ee830"
+      }
+    }
+  }
+}

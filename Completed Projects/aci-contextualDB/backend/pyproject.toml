@@ -1,0 +1,22 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.116.1",
+    "python-dotenv>=1.1.1",
+    "python-multipart>=0.0.20",
+    "supabase>=2.18.1",
+    "uvicorn>=0.35.0",
+    # Processing module dependencies
+    "openai>=1.100.2",
+    "socksio>=1.0.0",
+    "tiktoken>=0.11.0",
+    "trafilatura>=2.0.0",
+    # SOCKS proxy support for development environment, will remove in production
+    "httpx[socks]>=0.28.1",
+    # Vector operations for similarity calculations
+    "numpy>=1.24.0",
+]

@@ -1,0 +1,49 @@
+.tool-list-container {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1rem;
+}
+
+.tool-list-title {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  color: var(--text-medium);
+  margin: 0 0 1rem 0;
+}
+
+.tool-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tool-item {
+  background-color: var(--background-light);
+  color: var(--text-medium);
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: default;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid var(--border-color);
+}
+
+.tool-item:hover {
+  background-color: var(--primary-orange);
+  color: var(--background-dark);
+  border-color: var(--primary-orange);
+}
+
+.more-tools {
+    cursor: pointer;
+}
+
+.tool-list-error {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+} 

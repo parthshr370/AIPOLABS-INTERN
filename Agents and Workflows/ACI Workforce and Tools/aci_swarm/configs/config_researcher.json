@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "aci_apps": {
+      "command": "uvx",
+      "args": [
+        "aci-mcp",
+        "apps-server",
+        "--apps=ARXIV,HACKERNEWS",
+        "--linked-account-owner-id",
+        "your_user_id"
+      ],
+      "env": {
+        "ACI_API_KEY": "281469abf784ae1ab98262b737a9d726096e7e6f82eabd3ea85d42ecbc088c56"
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "aci_apps": {
+      "command": "uvx",
+      "args": [
+        "aci-mcp",
+        "apps-server",
+        "--apps=ELEVEN_LABS,YOUTUBE,RESEND",
+        "--linked-account-owner-id",
+        "your_user_id"
+      ],
+      "env": {
+        "ACI_API_KEY": "f38c79247f4e2c16fa92c66e95d7a835cc00a9a6da8b4c71b7ba3a56b79442f3"
+      }
+    }
+  }
+}

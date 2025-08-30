@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Start Guide</title>
+    <style>
+        :root {
+            --background: #0a0a0a;
+            --foreground: #fafafa;
+            --primary: #34d399;
+            --primary-foreground: #0a0a0a;
+            --muted-foreground: #a3a3a3;
+            --card: #171717;
+            --border: #262626;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: var(--background);
+            color: var(--foreground);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            line-height: 1.6;
+            overflow: hidden;
+        }
+
+        .tutorial-container {
+            width: 100%;
+            max-width: 580px;
+            height: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .tutorial-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tutorial-header {
+            text-align: center;
+            padding: 24px 24px 20px;
+            background: linear-gradient(135deg, var(--card) 0%, #1f1f1f 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tutorial-logo {
+            width: 40px;
+            height: 40px;
+            margin: 0 auto 12px;
+            display: block;
+        }
+
+        .tutorial-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .tutorial-subtitle {
+            font-size: 14px;
+            color: var(--muted-foreground);
+        }
+
+        .slides-container {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            padding-top: 60px;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox */
+        }
+
+        /* Hide scrollbars for slide */
+        .slide::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide.prev {
+            transform: translateX(-100%);
+        }
+
+        .slide-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .slide-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(52, 211, 153, 0.1);
+            border: 2px solid rgba(52, 211, 153, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .slide-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--foreground);
+            margin: 0;
+        }
+
+        .slide-description {
+            font-size: 16px;
+            color: var(--muted-foreground);
+            line-height: 1.6;
+            max-width: 400px;
+            margin-bottom: 24px;
+        }
+
+        .slide-demo {
+            background: rgba(52, 211, 153, 0.05);
+            border: 1px solid rgba(52, 211, 153, 0.1);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 24px;
+            width: 100%;
+            max-width: 420px;
+        }
+
+        pre.codeblock {
+            background:#0f0f0f;
+            border:1px solid var(--border);
+            color:#e5e5e5;
+            padding:12px;
+            border-radius:6px;
+            overflow:auto;
+            max-height:220px;
+            font-size:12px;
+            line-height:1.5;
+            text-align:left;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox */
+        }
+
+        /* Hide scrollbars for code block */
+        pre.codeblock::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
+
+        .demo-popup {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .demo-button {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--foreground);
+            font-size: 14px;
+            margin-bottom: 8px;
+            width: 100%;
+        }
+
+        .demo-button:last-child {
+            margin-bottom: 0;
+        }
+
+        .demo-icon {
+            width: 16px;
+            height: 16px;
+            color: var(--primary);
+        }
+
+        .kbd {
+            background: var(--border);
+            color: var(--primary);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: monospace;
+            border: 1px solid rgba(52, 211, 153, 0.3);
+        }
+
+        .tutorial-navigation {
+            padding: 20px 24px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-button {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--foreground);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .nav-button:hover:not(:disabled) {
+            background: rgba(52, 211, 153, 0.05);
+            border-color: var(--primary);
+        }
+
+        .nav-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .nav-button.primary {
+            background: var(--primary);
+            color: var(--primary-foreground);
+            border-color: var(--primary);
+        }
+
+        .nav-button.primary:hover:not(:disabled) {
+            background: #2dd894;
+        }
+
+        .progress-dots {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .progress-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--border);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .progress-dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+
+        .search-demo {
+            background: #1a1a1a;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 20px;
+        }
+
+        .search-input-demo {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--foreground);
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .search-result-demo {
+            background: rgba(52, 211, 153, 0.05);
+            border: 1px solid rgba(52, 211, 153, 0.1);
+            border-radius: 6px;
+            padding: 12px;
+            font-size: 13px;
+            color: var(--muted-foreground);
+        }
+
+        /* Responsive design */
+        @media (max-width: 640px) {
+            .tutorial-container {
+                max-width: 100%;
+                height: 650px;
+                margin: 10px auto;
+            }
+            
+            .slide {
+                padding: 30px 20px;
+                padding-top: 40px;
+            }
+            
+            .slide-header {
+                flex-direction: column;
+                gap: 12px;
+                margin-bottom: 20px;
+            }
+            
+            .slide-title {
+                font-size: 22px;
+                text-align: center;
+            }
+            
+            .slide-description {
+                font-size: 15px;
+                max-width: 320px;
+            }
+            
+            .slide-demo {
+                max-width: 340px;
+                margin-top: 20px;
+            }
+            
+            .tutorial-navigation {
+                padding: 16px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="tutorial-container">
+        <div class="tutorial-card">
+            <div class="tutorial-header">
+                <img src="aci-white.svg" alt="Logo" class="tutorial-logo" />
+                <div class="tutorial-title">Quick Start Guide</div>
+                <div class="tutorial-subtitle">Learn how to use Contextual Database in 3 steps</div>
+            </div>
+
+            <div class="slides-container">
+                <!-- Slide 1: Save Content -->
+                <div class="slide active" data-slide="0">
+                    <div class="slide-header">
+                        <div class="slide-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                                <polyline points="17,21 17,13 7,13 7,21"/>
+                                <polyline points="7,3 7,8 15,8"/>
+                            </svg>
+                        </div>
+                        <div class="slide-title">Save Any Page</div>
+                    </div>
+                    <div class="slide-description">
+                        One‑click save: click the extension icon to capture the page you’re on and store it in your personal context database.
+                    </div>
+                    <div class="slide-demo">
+                        <div class="demo-popup">
+                            <div class="demo-button">
+                                <svg class="demo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                                    <polyline points="17,21 17,13 7,13 7,21"/>
+                                    <polyline points="7,3 7,8 15,8"/>
+                                </svg>
+                                <span>Save Page</span>
+                            </div>
+                            <div class="demo-button">
+                                <svg class="demo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"/>
+                                    <path d="M21 21l-4.35-4.35"/>
+                                </svg>
+                                <span>Search Saved Content</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Open Search -->
+                <div class="slide" data-slide="1">
+                    <div class="slide-header">
+                        <div class="slide-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="M21 21l-4.35-4.35"/>
+                            </svg>
+                        </div>
+                        <div class="slide-title">Open Side Panel</div>
+                    </div>
+                    <div class="slide-description">
+                        Open the side panel from the extension menu to search your saved pages.
+                    </div>
+                    <div class="slide-demo">
+                        <div class="search-demo">
+                            <input type="text" class="search-input-demo" placeholder="Search your saved content..." readonly />
+                            <div class="search-result-demo">
+                                💡 Search across all your saved pages and documents
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Smart Search -->
+                <div class="slide" data-slide="2">
+                    <div class="slide-header">
+                        <div class="slide-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/>
+                                <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/>
+                                <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/>
+                                <path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/>
+                                <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/>
+                                <path d="M3.477 10.896a4 4 0 0 1 .585-.396"/>
+                                <path d="M19.938 10.5a4 4 0 0 1 .585.396"/>
+                                <path d="M6 18a4 4 0 0 1-1.967-.516"/>
+                                <path d="M19.967 17.484A4 4 0 0 1 18 18"/>
+                            </svg>
+                        </div>
+                        <div class="slide-title">AI-Powered Search</div>
+                    </div>
+                    <div class="slide-description">
+                        Ask natural questions like "React tutorials" or "machine learning pages" to find exactly what you need.
+                    </div>
+                    <div class="slide-demo">
+                        <div class="search-demo">
+                            <input type="text" class="search-input-demo" value="articles about React hooks" readonly />
+                            <div class="search-result-demo">
+                                🧠 AI understands context and finds relevant content 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 4: MCP Integration -->
+                <div class="slide" data-slide="3">
+                    <div class="slide-header">
+                        <div class="slide-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M2 12h20"/>
+                                <path d="M12 2a15.3 15.3 0 0 1 0 20"/>
+                            </svg>
+                        </div>
+                        <div class="slide-title">Bring Context Anywhere</div>
+                    </div>
+                    <div class="slide-description">
+                        Bring your personal context anywhere.Use with Cursor, Claude Desktop, or any other MCP‑compatible app
+                    </div>
+                    <div class="slide-demo">
+                        <div class="demo-popup">
+                            <div style="text-align:left; margin-bottom: 8px; font-weight:600;">MCP client config (example)</div>
+                            <pre class="codeblock"><code>{
+  "mcp": {
+    "servers": {
+      "contextualdb": {
+        "command": "python",
+        "args": ["-m", "app.mcp.server"],
+        "transport": "stdio",
+        "env": {
+          "SUPABASE_URL": "https://YOUR-PROJECT.supabase.co",
+          "SUPABASE_SERVICE_ROLE_KEY": "YOUR_SERVICE_ROLE_KEY",
+          "OPENAI_API_KEY": "sk-..."
+        }
+      }
+    }
+  }
+}</code></pre>
+                            <div style="font-size:12px; color:var(--muted-foreground); margin-top:8px;">Replace values with your credentials. Then point your MCP‑compatible app to this server.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tutorial-navigation">
+                <button class="nav-button" id="prevButton" disabled>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15,18 9,12 15,6"/>
+                    </svg>
+                    Previous
+                </button>
+
+                <div class="progress-dots" id="progressDots">
+                    <div class="progress-dot active" data-slide="0"></div>
+                    <div class="progress-dot" data-slide="1"></div>
+                    <div class="progress-dot" data-slide="2"></div>
+                    <div class="progress-dot" data-slide="3"></div>
+                </div>
+
+                <button class="nav-button primary" id="nextButton">
+                    Next
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9,18 15,12 9,6"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="quick-guide.js"></script>
+</body>
+</html>

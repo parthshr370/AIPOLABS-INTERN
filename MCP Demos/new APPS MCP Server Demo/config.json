@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "aci_apps": {
+      "command": "aci-mcp",
+      "args": [
+        "apps-server",
+        "--apps=MEM0,BRAVE_SEARCH,GMAIL",
+        "--linked-account-owner-id",
+        "your_linked_account_owner_id"
+      ],
+      "env": {
+        "ACI_API_KEY": "your_aci_api_key_here"
+      }
+    }
+  }
+}

@@ -1,0 +1,170 @@
+.message-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  max-width: 85%;
+}
+
+.message-wrapper.user {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+
+.message-wrapper.agent {
+  align-self: flex-start;
+  align-items: flex-start;
+}
+
+.message-sender {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--text-medium);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  padding: 0 0.5rem;
+}
+
+.message-content {
+  padding: 1.25rem 1.5rem;
+  border-radius: 8px;
+  line-height: 1.6;
+  color: var(--text-light);
+}
+
+.message-wrapper.user .message-content {
+  background-color: var(--primary-orange);
+  color: var(--background-dark);
+  font-weight: 500;
+  border-top-right-radius: 0;
+}
+
+.message-wrapper.agent .message-content {
+  background-color: var(--background-light);
+  border-top-left-radius: 0;
+}
+
+.message-content a:link,
+.message-content a:visited {
+  color: white;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.message-content a:hover {
+  opacity: 0.8;
+}
+
+.message-wrapper.user .message-content a:link,
+.message-wrapper.user .message-content a:visited {
+  color: var(--background-darker);
+}
+
+/* Markdown specific styles */
+.message-content p {
+  margin: 0 0 0.75rem 0;
+}
+
+.message-content p:last-child {
+  margin-bottom: 0;
+}
+
+.message-content strong,
+.message-content b {
+  color: var(--primary-orange);
+  font-weight: 600;
+}
+
+.message-wrapper.user .message-content strong,
+.message-wrapper.user .message-content b {
+    color: var(--background-darker);
+}
+
+.message-content ul,
+.message-content ol {
+  padding-left: 1.5rem;
+  margin: 0.75rem 0;
+}
+
+.message-content code {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.2em 0.4em;
+  font-size: 85%;
+  border-radius: 4px;
+  font-family: 'Roboto Mono', monospace;
+}
+
+/* New styles for Markdown tables and images */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin: 1.25rem 0;
+}
+
+.markdown-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.markdown-th {
+  background-color: rgba(217, 119, 6, 0.2);
+  color: var(--primary-orange);
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+}
+
+.markdown-td {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  vertical-align: top;
+}
+
+.markdown-table tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.markdown-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1.25rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.executed-tools-container {
+  border-top: 1px solid var(--border-color);
+  margin-top: 1.25rem;
+  padding: 1.25rem 0.5rem 0;
+}
+
+.executed-tools-title {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-medium);
+  margin: 0 0 0.75rem 0;
+  letter-spacing: 0.5px;
+}
+
+.executed-tools-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.executed-tools-list li {
+  background-color: var(--primary-orange-light);
+  color: var(--primary-orange);
+  border: 1px solid var(--primary-orange);
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+} 

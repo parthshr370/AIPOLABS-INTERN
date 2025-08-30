@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "aci_apps": {
+      "command": "uvx",
+      "args": [
+        "aci-mcp",
+        "apps-server",
+        "--apps=GMAIL,GOOGLE_SHEETS,GOOGLE_CALENDAR,RESEND,NOTION,GOOGLE_DOCS",
+        "--linked-account-owner-id",
+        "your_user_id"
+      ],
+      "env": {
+        "ACI_API_KEY": "72868765bf389c2ec54e61c0e0dd1a858831b1ba0b42a6c32fad80c681d08940"
+      }
+    }
+  }
+}

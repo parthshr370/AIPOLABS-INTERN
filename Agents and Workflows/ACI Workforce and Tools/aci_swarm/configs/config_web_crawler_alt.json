@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "aci_apps": {
+      "command": "uvx",
+      "args": [
+        "aci-mcp",
+        "apps-server",
+        "--apps=BROWSERBASE,BRAVE_SEARCH,STEEL",
+        "--linked-account-owner-id",
+        "your_user_id"
+      ],
+      "env": {
+        "ACI_API_KEY": "0522ada54c8574512ebe665fd22761766b37db59f23860279b1736c7d46fd5de"
+      }
+    }
+  }
+}

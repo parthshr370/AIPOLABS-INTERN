@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "aci_apps": {
+      "command": "uvx",
+      "args": [
+        "aci-mcp",
+        "apps-server",
+        "--apps=SLACK",
+        "--linked-account-owner-id",
+        "your_user_id"
+      ],
+      "env": {
+        "ACI_API_KEY": "9660685ccb3dd03ee0d8318003d83a5ccd73d4c3dbeeb05fab6cf36286467218"
+      }
+    }
+  }
+}

@@ -1,0 +1,123 @@
+.project-info {
+  background-color: var(--background-dark);
+  color: var(--text-light);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.project-info .logo {
+  width: 60px;
+  height: 60px;
+  border: 1px solid var(--primary-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.project-info .logo-text {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-orange);
+}
+
+.project-info .title {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+  margin: 0 0 1rem 0;
+  color: var(--text-light);
+}
+
+.powered-by {
+  background: var(--background-darker);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 2rem;
+}
+
+.powered-by p {
+  margin: 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-medium);
+}
+
+.powered-by a {
+  color: var(--primary-orange);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease-in-out;
+}
+
+.powered-by a:hover {
+  color: var(--text-light);
+}
+
+.project-info .description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-medium);
+  margin-bottom: 2rem;
+}
+
+.project-info .description a {
+  color: var(--primary-orange);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+}
+
+.project-info .description a:hover {
+  color: var(--text-light);
+}
+
+.project-info .features {
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
+}
+
+.project-info .features-title {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.875rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-medium);
+  margin: 0 0 1.5rem 0;
+}
+
+.project-info .features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project-info .features li {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.95rem;
+  color: var(--text-light);
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.project-info .features li:hover {
+  color: var(--primary-orange);
+  background-color: var(--background-darker);
+}
+
+.project-info .footer {
+  margin-top: auto;
+  padding-top: 2rem;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.875rem;
+  color: var(--text-medium);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} 

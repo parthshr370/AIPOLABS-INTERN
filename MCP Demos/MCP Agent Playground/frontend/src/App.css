@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap');
+
+:root {
+  --primary-orange: #d97706;
+  --primary-orange-light: rgba(217, 119, 6, 0.1);
+  --background-dark: #1a1a1a;
+  --background-darker: #131313;
+  --background-light: #2a2a2a;
+  --text-light: #e0e0e0;
+  --text-medium: #8a8a8a;
+  --border-color: #3a3a3a;
+
+  --font-primary: 'Inter', sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-darker);
+  color: var(--text-light);
+  overflow: hidden; /* Prevent body scrolling */
+}
+
+.App {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  width: 100%;
+  height: 100%;
+  max-width: 1600px;
+  max-height: 95vh;
+  background-color: var(--background-dark);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--border-color);
+}
+
+.left-panel {
+  grid-column: 1 / 2;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.right-panel {
+  grid-column: 2 / 3;
+  height: 100%;
+  border-left: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Custom scrollbar for left panel */
+.left-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.left-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.left-panel::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: 20px;
+  border: 3px solid var(--background-dark);
+}

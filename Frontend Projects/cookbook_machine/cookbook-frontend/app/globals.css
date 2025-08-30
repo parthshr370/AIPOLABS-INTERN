@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Solarized-inspired light palette */
+    --background: 45 85% 95%;           /* #fdf6e3 */
+    --foreground: 192 78% 12%;          /* #073642 */
+
+    --card: 44 36% 87%;                /* #eee8d5 */
+    --card-foreground: 192 78% 12%;    /* #073642 */
+
+    --popover: 44 36% 87%;             /* #eee8d5 */
+    --popover-foreground: 192 78% 12%; /* #073642 */
+
+    --primary: 330 62% 53%;            /* #d33682 */
+    --primary-foreground: 0 0% 100%;   /* white */
+
+    --secondary: 174 59% 38%;          /* #2aa198 */
+    --secondary-foreground: 0 0% 100%; /* white */
+
+    --muted: 180 13% 59%;              /* #93a1a1 */
+    --muted-foreground: 192 78% 12%;   /* #073642 */
+
+    --accent: 18 77% 45%;              /* #cb4b16 */
+    --accent-foreground: 0 0% 100%;    /* white */
+
+    --destructive: 359 66% 52%;        /* #dc322f */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 192 9% 55%;              /* #839496 */
+    --input: 192 9% 55%;               /* #839496 */
+    --ring: 330 62% 53%;               /* match primary */
+
+    --radius: 0.25rem;
+
+    /* Charts */
+    --chart-1: 208 67% 49%;            /* #268bd2 */
+    --chart-2: 174 59% 38%;            /* #2aa198 */
+    --chart-3: 330 62% 53%;            /* #d33682 */
+    --chart-4: 18 77% 45%;             /* #cb4b16 */
+    --chart-5: 359 66% 52%;            /* #dc322f */
+  }
+
+  .dark {
+    --background: 192 100% 11%;        /* #002b36 */
+    --foreground: 180 13% 59%;         /* #93a1a1 */
+
+    --card: 192 78% 12%;               /* #073642 */
+    --card-foreground: 180 13% 59%;    /* #93a1a1 */
+
+    --popover: 192 78% 12%;            /* #073642 */
+    --popover-foreground: 180 13% 59%; /* #93a1a1 */
+
+    --primary: 330 62% 53%;            /* #d33682 */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 174 59% 38%;          /* #2aa198 */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 196 11% 41%;              /* #586e75 */
+    --muted-foreground: 180 13% 59%;   /* #93a1a1 */
+
+    --accent: 18 77% 45%;              /* #cb4b16 */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 359 66% 52%;        /* #dc322f */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 196 11% 41%;             /* #586e75 */
+    --input: 196 11% 41%;              /* #586e75 */
+    --ring: 330 62% 53%;
+
+    /* Charts same as light */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  /* Ensure inputs and textareas have black borders by default */
+  input,
+  textarea,
+  select {
+    @apply border-black;
+  }
+  /* Override shadcn's default input border color if it's not black */
+  .border-input {
+    border-color: hsl(var(--primary)) !important; /* black */
+  }
+}
+
+/* Custom prose styles for Markdown preview to better fit the theme */
+/* .prose pre {
+  @apply bg-gray-100 border border-gray-300 text-black;
+}
+.prose code {
+  @apply text-black;
+}
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  @apply text-black;
+} */
+
+@layer base {
+  /* Add more vertical space between block elements */
+  .prose p,
+  .prose ul,
+  .prose ol,
+  .prose pre,
+  .prose blockquote {
+    @apply my-6;
+  }
+  
+  .prose h2 {
+    @apply mt-12 mb-4 border-b pb-2; /* More space above h2 for section breaks */
+  }
+  
+  .prose h3 {
+    @apply mt-8 mb-4; /* More space above h3 */
+  }
+  
+  /* Style links to be more prominent */
+  .prose a {
+    @apply font-medium text-primary underline-offset-4 hover:underline;
+  }
+
+  /* Style code blocks */
+  .prose pre {
+    @apply rounded-xl border bg-zinc-950 p-4 shadow-sm;
+  }
+  
+  /* Inline code */
+  .prose code:not(pre > code) {
+    @apply rounded bg-muted px-1.5 py-1 font-mono text-sm;
+  }
+
+  .prose hr {
+    @apply my-12;
+  }
+
+  /* Force white text in the inverted prose theme for the editor */
+  .prose-invert {
+    --tw-prose-body: theme('colors.zinc.300');
+    --tw-prose-headings: theme('colors.zinc.100');
+    --tw-prose-links: theme('colors.white');
+    --tw-prose-bold: theme('colors.white');
+    --tw-prose-code: theme('colors.zinc.100');
+  }
+
+  /* Ensure markdown preview text is white on dark background */
+  .prose-invert * {
+    color: white !important;
+  }
+  
+  .prose-invert h1, 
+  .prose-invert h2, 
+  .prose-invert h3, 
+  .prose-invert h4, 
+  .prose-invert h5, 
+  .prose-invert h6 {
+    color: white !important;
+  }
+  
+  .prose-invert p {
+    color: white !important;
+  }
+  
+  .prose-invert li {
+    color: white !important;
+  }
+  
+  .prose-invert a {
+    color: #60a5fa !important;
+  }
+  
+  .prose-invert code:not(pre > code) {
+    color: #fbbf24 !important;
+    background-color: rgba(0, 0, 0, 0.3) !important;
+  }
+}

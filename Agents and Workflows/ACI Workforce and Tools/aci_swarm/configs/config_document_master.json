@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "aci_apps": {
+      "command": "uvx",
+      "args": [
+        "aci-mcp",
+        "apps-server",
+        "--apps=GOOGLE_DOCS,CODA",
+        "--linked-account-owner-id",
+        "your_user_id"
+      ],
+      "env": {
+        "ACI_API_KEY": "e2834366eb7930a8a68137aa23d1d22cfa21ef9a04ccc6986490e074be0e1d72"
+      }
+    }
+  }
+}

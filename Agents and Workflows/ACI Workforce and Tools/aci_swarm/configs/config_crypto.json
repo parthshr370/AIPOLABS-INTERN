@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "aci_apps": {
+      "command": "uvx",
+      "args": [
+        "aci-mcp",
+        "apps-server",
+        "--apps=COINMARKETCAP,SOLSCAN",
+        "--linked-account-owner-id",
+        "your_user_id"
+      ],
+      "env": {
+        "ACI_API_KEY": "7a8889f99e82826f5acd59fedd34fdbcbd3f8d46d69db062b40b5580b6594269"
+      }
+    }
+  }
+}
